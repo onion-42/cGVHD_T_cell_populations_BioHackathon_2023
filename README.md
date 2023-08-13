@@ -63,4 +63,48 @@ We calculated ssGSEA score for all "active" state T cells (HLA-DR+, CD226+, TIGI
 One of the approaches for the task was to perform time-to-event approach.
 
 ## KME
-First, we 
+First, we were searching for dependencies using Kaplan Meier approach. Using log-rank test we have identified populations with a predictive tendency, for example, CD8+ HLA-DR+ cells and Th1 TM were associated with reduced risk. We used 3 cutoffs (Q1, Q2, Q3) and FDR was applied inside every cutoff. The majority of populations (out of 132 cell types) were not influencing the survival. 
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km1.jpg "km1")
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km2.jpg "km2")
+
+## CPH
+
+### Assumptions
+We have also used the Cox proportional hazards regression univariate models. We checked the CPH assumptions. If the check failed, the population was categorized and the model was checked again. If the model failed the Shoenfild residuals tests, such populations were dropped. 
+
+### Permutations tests was baselines
+For each feature, 10 permutations rounds were performed and the mean permutated value coeffiecient, as well as Harrel's C-index, indicating model predicting power were tracked.
+
+### CPH results
+Here are the populations that had a significant log-rank test results and for which C-index was higher than permutated value C-index:
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/forest_plot.png "forest_plot")
+
+Higher CD4+ TE maturity PD1- TIGIT+ levels associated with associated with cGVHD onset. Higher levels of CD8+ cells with different stages of maturity associated with with lack of cGVHD. Also, several engineered features had a higher association with the target.
+
+# Clustering
+
+## NMF clustering
+
+Using sparse NMF approach, we have clustered populations and patients with 2 clusters. It was the best metric when the matrix prediction was tested 10 times using cophenetic correlation and dispersion as metrics of interests for number of clusters under 5 (considering low amount of patients).
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/nmf_ranks_40.png "nmf_ranks")
+
+The resulting clusters were as follows (100 iterations):
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/nmf_select_clustering_heatmap.png "heatmap")
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/nmf_select_clustering_heatmap_event_patch_plot.png "heatmap")
+
+The populations that were plotted were selected by feature fraction (max/sum by row) derived from the resulting matrices. Distribution of cGVHD events was significant (Fisher test, FDR=0.045 for each cluster).
+
+## Leiden clustering
+
+Another approach was to use graph-based clustering. 
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/leiden.jpg "leiden")
+
+## Clustering Results
+
+Both clusterings identified a predominantly CD4 T cell naive cluster with worse outcome (cGVHD) and a CD8 T cell mature cluster with a better outcome (no cGVHD).
+
+
