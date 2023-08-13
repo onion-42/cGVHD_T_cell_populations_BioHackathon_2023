@@ -65,9 +65,9 @@ One of the approaches for the task was to perform time-to-event approach.
 ## KME
 First, we were searching for dependencies using Kaplan Meier approach. Using log-rank test we have identified populations with a predictive tendency, for example, CD8+ HLA-DR+ cells and Th1 TM were associated with reduced risk. We used 3 cutoffs (Q1, Q2, Q3) and FDR was applied inside every cutoff. The majority of populations (out of 132 cell types) were not influencing the survival. 
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km1.jpg "km1")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km1.png "km1")
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km2.jpg "km2")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/km2.png "km2")
 
 ## CPH
 
@@ -116,7 +116,7 @@ We have selected features using 500 iteration of BorutaShap. To assess baseline,
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pycaret.jpg "pycaret")
 
 ## Classifier building
-We have tried to make a classifier (XGBoost and RF) and optimize it using optuna. While training scores were high, models faild the validation dataset estimation. Possibly due to very low amount of samples.
+We have tried to make a classifier (XGBoost and RF) and optimize it using optuna (1000 rounds). While training scores were high, models faild the validation dataset estimation. Possibly due to very low amount of samples.
 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/ROC_PR_curves.png "ROC_PR_curves")
 
