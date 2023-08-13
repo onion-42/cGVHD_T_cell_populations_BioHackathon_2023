@@ -19,6 +19,6 @@ Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who
 ## Potential duplicates 
 
 We have dropped potential duplicates for which 90% of the data or higher had Spearman rho values different by 0.05 or lower. 8 pairs different by markers of maturity or activity, but not by the identified cell type, were found. We have dropped the populations that had less information about the population.
-
 Here are the potentially duplicated cell types: 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/potential_dupes.png "heatmap")
+![alt text][potential_dupes]
+[potential_dupes]: (https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/potential_dupes.png "heatmap")
