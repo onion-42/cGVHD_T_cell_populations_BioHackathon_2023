@@ -107,4 +107,25 @@ Another approach was to use graph-based clustering.
 
 Both clusterings identified a predominantly CD4 T cell naive cluster with worse outcome (cGVHD) and a CD8 T cell mature cluster with a better outcome (no cGVHD).
 
+# Classification approach.
+To detect non-linear dependencies, we wanted to try other ML approaches.
 
+## Baseline
+We have selected features using 500 iteration of BorutaShap. To assess baseline, we have used pycaret tool and identified the scores. Low Dummy classifier scores says that the task is solvable. 
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pycaret.jpg "pycaret")
+
+## Classifier building
+We have tried to make a classifier (XGBoost and RF) and optimize it using optuna. While training scores were high, models faild the validation dataset estimation. Possibly due to very low amount of samples.
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/ROC_PR_curves.png "ROC_PR_curves")
+
+## Shap
+Modelling help us to assess possible interesting non-linear dependencies between features:
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/shap.png "shap")
+
+# Results
+
+CD8+ T-cells (any maturity, predominantly active) are associated with better outcomes after allo-HSCT transplantation.
+CD4+ T-cells (low effector function) are associated with chronic GVHD onset.
