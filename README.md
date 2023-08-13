@@ -21,3 +21,15 @@ Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who
 We have dropped potential duplicates for which 90% of the data or higher had Spearman rho values different by 0.05 or lower. 8 pairs different by markers of maturity or activity, but not by the identified cell type, were found. We have dropped the populations that had less information about the population.
 Here are the potentially duplicated cell types: 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/potential_dupes_tight.png "heatmap")
+
+## Median deviation cutoff
+
+We used the analog of dispersion from the median-centered statistics paradigm: mad of the cell population per sample median + 1. For day 90 and day 180 of blood sampling, we have plotted the median deviation values and identified samples with the highest and lowest variability. After the intersection, 24 cell populations were discarded.
+
+Median deviation for day_90:
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png.png "median_deviation_day_90.png")
+
+Median deviation for day_180:
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png.png "median_deviation_day_180.png")
