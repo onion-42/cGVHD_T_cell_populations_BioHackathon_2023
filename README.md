@@ -16,6 +16,8 @@ Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who
 
 # Dataset preprocessing
 
+We performed inital dataset preprocessing and worked with blood samples collected on day 90 for patients who did not develop cGVHD yet. The metrics for cell population was concentration of identified T cell population concentration per ml of blood. Each population had information about its maturity and activity marker. Overall, there were 66 patients. We received only aggregated knowledge about dataset clinical characteristics except day and status of the onset. Mostly, patients were women (60%) and had either AML (56%) or cll (42.6%). 91% of patients received reduced-intensity conditioning, and 80% received similar prophylaxy. The last patient dat follow-up was considered the day 275 since the blood collection.
+
 ## Potential duplicates 
 
 We have dropped potential duplicates for which 90% of the data or higher had Spearman rho values different by 0.05 or lower. 8 pairs different by markers of maturity or activity, but not by the identified cell type, were found. We have dropped the populations that had less information about the population.
@@ -33,3 +35,5 @@ Median deviation for day_90 (cutoffs <0.5; >4):
 Median deviation for day_180 (cutoffs <0.5; >1.6):
 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180.png")
+
+
