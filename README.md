@@ -44,11 +44,11 @@ We have identified outliers in raw non-scaled data and thus log2-scaled the data
 Before:
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/eda_distplot_non_scaled.png "eda_distplot_non_scaled")
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_distplot_non_scaled.png "pca_distplot_non_scaled")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_plot_non_scaled.png "pca_distplot_non_scaled")
 
 After:
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/eda_distplot_log_scaled.png "eda_distplot_log_scaled")
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_distplot_log_scaled.png "pca_distplot_log_scaled")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_plot_log_scaled.png "pca_distplot_log_scaled")
 
 
