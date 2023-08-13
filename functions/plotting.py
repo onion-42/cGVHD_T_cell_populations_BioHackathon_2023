@@ -8,6 +8,23 @@ import seaborn as sns
 
 from functions.utils import item_series, to_common_samples
 
+from matplotlib.colors import LinearSegmentedColormap
+default_cmap = LinearSegmentedColormap.from_list("default_cmap", ["navy", "white", "crimson"])
+
+def axis_matras(ys, x_len, title, title_y=1):
+    fig, axes = plt.subplots(nrows=len(ys), sharex=True, figsize=(x_len, np.sum(ys)), gridspec_kw={"height_ratios": ys})
+    fig.suptitle(title, y=title_y)
+    for i, ax in enumerate(axes):       
+        yield ax
+
+    plt.tight_layout()
+    plt.subplots_adjust(top=2)
+    
+def line_palette_annotation_plot(series, palette, ax=None):
+        for idx, category in enumerate(series):
+                ax.axvline(x=idx, color=palette[category], linewidth=10)
+                ax.set_yticklabels([])
+                ax.set_xticklabels([])
 
 def axis_net(x, y, title='', x_len=4, y_len=4, title_y=1, gridspec_kw=None):
     """

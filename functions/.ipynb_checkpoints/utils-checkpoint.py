@@ -1,9 +1,58 @@
 import warnings
-
 import numpy as np
 import pandas as pd
 
+from sklearn.preprocessing import MinMaxScaler
 
+def scale_series(series,feature_range=(0, 1)):
+    name = series.name
+    scaler = MinMaxScaler(feature_range=feature_range)
+    series_2d = series.values.reshape(-1, 1)
+    scaled_series_2d = scaler.fit_transform(series_2d)
+    scaled_series = pd.Series(scaled_series_2d.flatten(), index=series.index)
+    scaled_series.name =name
+    return scaled_series
+    
+def sort_by_terms_order(categorical_series, order_list, numerical_series):
+    df = pd.DataFrame({
+        'cat': categorical_series,
+        'num': numerical_series
+    })
+    df = df[df['cat'].isin(order_list)]
+    cat_type = pd.CategoricalDtype(categories=order_list, ordered=True)
+    df['cat'] = df['cat'].astype(cat_type)
+    sorted_df = df.sort_values(by=['cat', 'num'])
+    return sorted_df.index
+    
+def df_fisher_chi2(clusters = pd.Series, response=pd.Series, R=False, NR=True):
+    import pandas as pd
+    from scipy.stats import fisher_exact, chi2_contingency
+    from statsmodels.stats.multitest import multipletests
+    df=pd.crosstab(clusters,response)
+    df.insert(0,'Fisher_pv', 1)
+    df.insert(1,'Chi2_pv', 1)
+
+    for  i in df.index:
+        nr, r = df[R].loc[i], df[NR].loc[i]
+        nrj = df[R].sum() - nr
+        rj = df[NR].sum() - r
+        oddsratio, pvalue = fisher_exact([[nr, r],[nrj, rj]])  
+        if pvalue > 1:
+            pvalue = 1
+        df.at[i,'Fisher_pv'] = pvalue
+
+    for  i in df.index:
+        nr, r = df[R].loc[i], df[NR].loc[i]
+        nrj = df[R].sum() - nr
+        rj = df[NR].sum() - r
+        chi, pvalue, dof, exp = chi2_contingency([[r, nr],[rj, nrj]])  
+        if pvalue > 1:
+            pvalue = 1
+        df.at[i, 'Chi2_pv'] = pvalue
+    _, df['Fisher_pv'],_,_ = multipletests(df['Fisher_pv'],method='fdr_bh')
+    _, df['Chi2_pv'],_,_ = multipletests(df['Chi2_pv'],method='fdr_bh')
+    return df
+    
 class GeneSet(object):
     def __init__(self, name, descr, genes):
         self.name = name
@@ -159,3 +208,29 @@ def pivot_vectors(vec1, vec2, na_label_1=None, na_label_2=None):
 
     return pd.pivot_table(data=sub_df, columns=name1,
                           index=name2, values='N', aggfunc=sum).fillna(0).astype(int)
+
+def iterative_pca_outliers(df, return_labels=True):
+    from sklearn.decomposition import PCA
+    from scipy.stats import median_abs_deviation as mad
+    pca = PCA(n_components=2)
+    continue_search = True
+    labels = []
+    data = df.values
+    index = df.index
+    while continue_search:
+        transformed_data = pca.fit_transform(data)
+        medians = np.median(transformed_data, axis=0)
+        mads = mad(transformed_data, scale=1/1.4826, axis=0)
+        a = np.abs((transformed_data - medians) / mads)
+        outliers_idx = np.any(a > 6, axis=1)
+        if np.any(outliers_idx):
+            for idx in index[outliers_idx]:
+                print(f'{idx} is detected as an outlier')
+                labels.append(idx)
+            data = data[~outliers_idx]
+            index = index[~outliers_idx]
+        else:
+            continue_search = False
+            print('There are no outliers')
+    if return_labels:
+        return labels
