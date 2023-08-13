@@ -28,8 +28,8 @@ We used the analog of dispersion from the median-centered statistics paradigm: m
 
 Median deviation for day_90:
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png.png "median_deviation_day_90.png")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png "median_deviation_day_90.png")
 
 Median deviation for day_180:
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png.png "median_deviation_day_180.png")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180.png")
