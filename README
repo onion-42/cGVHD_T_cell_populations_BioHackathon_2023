@@ -1,0 +1,11 @@
+# Our task
+
+**Analysis of T-cells immunological landscape and its association with graft-versus-host disease**
+
+Transplantation of allogeneic hematopoietic stem cells allows achieving a biological cure in patients with leukemia. But the main reason for the decrease of disease-free survival and quality of life is chronic graft-versus-host disease (chronic GVHD), which develops in more than half of patients. Chronic GVHD remains a clinical diagnosis but attempts are being made worldwide to find diagnostic markers of this complication. The pathogenesis of this condition is not fully understood, but the role of T-lymphocytes has been proven.
+
+A large dataset of immunological data is presented (analysis of the subpopulation composition of T-lymphocytes - 162 subpopulations) for 70 patients after stem cells transplantation. Chronic GVHD developed in 28 of these 70 patients.
+
+**Purpose**: application of modern data processing and visualization technologies for the prediction and characterization of chronic GVHD.
+
+[More](https://https://bioinf.institute/hack/teams "BioHack Team page")
