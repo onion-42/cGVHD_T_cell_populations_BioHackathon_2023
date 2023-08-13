@@ -26,10 +26,10 @@ Here are the potentially duplicated cell types:
 
 We used the analog of dispersion from the median-centered statistics paradigm: mad of the cell population per sample median + 1. For day 90 and day 180 of blood sampling, we have plotted the median deviation values and identified samples with the highest and lowest variability. After the intersection, 24 cell populations were discarded.
 
-Median deviation for day_90:
+Median deviation for day_90 (cutoffs <0.5; >4):
 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png "median_deviation_day_90.png")
 
-Median deviation for day_180:
+Median deviation for day_180 (cutoffs <0.5; >1.6):
 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180.png")
