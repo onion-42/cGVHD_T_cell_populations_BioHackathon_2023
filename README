@@ -14,3 +14,8 @@ Task 1: Identify landscape of T cells and their combination in patients after al
 Task 2: Using biostatistics and machine learning methods identify the relationship between T cells and their combination in patients after allo-HSCT and development of cGVHD.
 Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who develop cGVHD and who not. 
 
+# Dataset preprocessing
+
+## Potential duplicates 
+
+We have dropped potential duplicates for which 90% of the data or higher had Spearman rho values different by 0.05 or lower. 8 pairs different by markers of maturity or activity, but not by the identified cell type, were found. We have dropped the populations that had less information about the population.
