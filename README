@@ -9,3 +9,8 @@ A large dataset of immunological data is presented (analysis of the subpopulatio
 **Purpose**: application of modern data processing and visualization technologies for the prediction and characterization of chronic GVHD.
 
 [More](https://https://bioinf.institute/hack/teams "BioHack Team page")
+
+Task 1: Identify landscape of T cells and their combination in patients after allo-HSCT.
+Task 2: Using biostatistics and machine learning methods identify the relationship between T cells and their combination in patients after allo-HSCT and development of cGVHD.
+Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who develop cGVHD and who not. 
+
