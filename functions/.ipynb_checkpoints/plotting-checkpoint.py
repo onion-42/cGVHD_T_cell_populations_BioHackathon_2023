@@ -158,6 +158,60 @@ def pca_plot(data, grouping=None, order=(), n_components=2, ax=None, palette=Non
 
     return ax
 
+def pca_plot_scatter(data, grouping=None, order=(), n_components=2, ax=None, palette=None,
+             alpha=1, random_state=42, s=20, figsize=(5, 5), title='',scatter = None,
+             legend='in', **kwargs):
+    kwargs_scatter = dict()
+    kwargs_scatter['linewidth'] = kwargs.pop('linewidth', 0)
+    kwargs_scatter['marker'] = kwargs.pop('marker', 'o')
+    kwargs_scatter['edgecolor'] = kwargs.pop('edgecolor', 'black')
+
+    if grouping is None:
+        grouping = item_series('*', data)
+
+    # Common samples
+    c_data, c_grouping = to_common_samples([data, grouping])
+
+    if len(order):
+        group_order = copy.copy(order)
+    else:
+        group_order = np.sort(c_grouping.unique())
+
+    if palette is None:
+        cur_palette = lin_colors(c_grouping)
+    else:
+        cur_palette = copy.copy(palette)
+
+    if ax is None:
+        _, ax = plt.subplots(figsize=figsize)
+
+    # Get model and transform
+    n_components = min(n_components, len(c_data.columns))
+    from sklearn.decomposition import PCA
+    model = PCA(n_components=n_components, random_state=random_state, **kwargs)
+
+    data_tr = pd.DataFrame(model.fit_transform(c_data), index=c_data.index)
+
+    label_1 = 'PCA 1 component {}% variance explained'.format(int(model.explained_variance_ratio_[0] * 100))
+    label_2 = 'PCA 2 component {}% variance explained'.format(int(model.explained_variance_ratio_[1] * 100))
+
+    kwargs_scatter = kwargs_scatter or {}
+    for group in group_order:
+        samples = list(c_grouping[c_grouping == group].index)
+        for sample in samples:
+            ax.scatter(data_tr[0][[sample]], data_tr[1][[sample]], color=cur_palette[group], s=s, alpha=alpha,marker = scatter[sample],
+                   label=str(group), **kwargs_scatter)
+
+    if legend == 'out':
+        ax.legend(scatterpoints=1, bbox_to_anchor=(1, 1), loc=2, borderaxespad=0.1)
+    elif legend == 'in':
+        ax.legend(scatterpoints=1)
+
+    ax.set_title(title)
+    ax.set_xlabel(label_1)
+    ax.set_ylabel(label_2)
+
+    return ax
 
 def clustering_heatmap(ds, title='', corr='pearson', method='complete',
                        yl=True, xl=True,
