@@ -37,7 +37,7 @@ Median deviation for day_180 (cutoffs <0.5; >1.6):
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180")
 
 
-# Exploratory data analysis
+## Log-scaling
 
 We have identified outliers in raw non-scaled data and thus log2-scaled the data.
 
@@ -51,4 +51,16 @@ After:
 
 ![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/eda_pca_plot_log_scaled.png "pca_distplot_log_scaled")
 
+## Feature engineering
 
+To work with the important cGVHD-predicting populations, we have created new features using ssGSEA score approach, common to gene expression analysis. Rank-based approach helped us to overcome the issue with the data: for same cell type and maturity state one does not know if detected markers intersect or not (as we've established with duplicate detection). Rank sums helps us to decrease each value contribution to the value. 
+We calculated ssGSEA score for all "active" state T cells (HLA-DR+, CD226+, TIGIT-), "suppressed" (TIGIT+, PD1+, CD35+, CD226-), all CD8+ cells and CD4+ cells.
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/ssgsea.jpg "ssgsea")
+
+# Time-to-event analysis
+
+One of the approaches for the task was to perform time-to-event approach.
+
+## KME
+First, we 
