@@ -30,10 +30,25 @@ We used the analog of dispersion from the median-centered statistics paradigm: m
 
 Median deviation for day_90 (cutoffs <0.5; >4):
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png "median_deviation_day_90.png")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_90.png "median_deviation_day_90")
 
 Median deviation for day_180 (cutoffs <0.5; >1.6):
 
-![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180.png")
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/median_deviation_day_180.png "median_deviation_day_180")
+
+
+# Exploratory data analysis
+
+We have identified outliers in raw non-scaled data and thus log2-scaled the data.
+
+Before:
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/eda_distplot_non_scaled.png "eda_distplot_non_scaled")
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_distplot_non_scaled.png "pca_distplot_non_scaled")
+
+After:
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/eda_distplot_log_scaled.png "eda_distplot_log_scaled")
+
+![alt text](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/plots/pca_distplot_log_scaled.png "pca_distplot_log_scaled")
 
 
