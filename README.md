@@ -22,7 +22,7 @@ Presentation video: [BioHack Hackathon 2023](https://www.youtube.com/live/E-Vtzp
 
 [Presentation](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/T_cells_cGVHD_Hackathon_2023_final.pdf "BioHack_2023")
 
-**The project won 1st Prize.** 
+_**The project won 1st Prize.**_
 
 
 # Dataset preprocessing
