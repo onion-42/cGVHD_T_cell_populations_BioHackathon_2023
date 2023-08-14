@@ -18,9 +18,7 @@ Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who
 
 The project was presented at [BioHack Hackathon 2023](https://bioinf.institute/hack/teams "BioHack_2023")
 
-Presentation video (starts at 01:28:00): 
-[![BioHack2023](http://img.youtube.com/vi/E-VtzpypL6M/0.jpg)]([http://www.youtube.com/watch?v=E-VtzpypL6M](https://www.youtube.com/live/E-VtzpypL6M?feature=share&t=5301
-))
+Presentation video: [BioHack Hackathon 2023](https://www.youtube.com/live/E-VtzpypL6M?feature=share&t=5301)
 
 [Presentation](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/T_cells_cGVHD_Hackathon_2023_final.pdf "BioHack_2023")
 
