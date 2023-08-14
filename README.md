@@ -18,9 +18,9 @@ Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who
 
 The project was presented at [BioHack Hackathon 2023](https://bioinf.institute/hack/teams "BioHack_2023")
 
-Presentation video: [BioHack Hackathon 2023](https://www.youtube.com/live/E-VtzpypL6M?feature=share&t=5301)
+Presentation video: [YouTube](https://www.youtube.com/live/E-VtzpypL6M?feature=share&t=5301)
 
-[Presentation](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/T_cells_cGVHD_Hackathon_2023_final.pdf "BioHack_2023")
+[PDF of the slides](https://github.com/onion-42/cGVHD_T_cell_populations_BioHackathon_2023/blob/main/T_cells_cGVHD_Hackathon_2023_final.pdf "BioHack_2023")
 
 _**The project won 1st Prize.**_
 
@@ -118,7 +118,7 @@ Another approach was to use graph-based clustering.
 
 Both clusterings identified a predominantly CD4 T cell naive cluster with worse outcome (cGVHD) and a CD8 T cell mature cluster with a better outcome (no cGVHD).
 
-# Classification approach.
+# Classification approach
 To detect non-linear dependencies, we wanted to try other ML approaches.
 
 ## Baseline
