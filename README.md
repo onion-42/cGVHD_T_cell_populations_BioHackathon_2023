@@ -12,9 +12,11 @@ A large dataset of immunological data is presented (analysis of the subpopulatio
 
 [More](https://bioinf.institute/hack/teams "BioHack Team page")
 
-Task 1: Identify landscape of T cells and their combination in patients after allo-HSCT.
-Task 2: Using biostatistics and machine learning methods identify the relationship between T cells and their combination in patients after allo-HSCT and development of cGVHD.
-Task 3: Visualize using t-SNE, PCA and etc.  T cells populations in patients who develop cGVHD and who not. 
+1. Identify landscape of T cells and their combination in patients after allo-HSCT.
+   
+2. Using biostatistics and machine learning methods identify the relationship between T cells and their combination in patients after allo-HSCT and development of cGVHD.
+   
+3. Visualize using t-SNE, PCA and etc.  T cells populations in patients who develop cGVHD and who not. 
 
 ## Presentation
 
